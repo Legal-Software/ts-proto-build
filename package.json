@@ -23,5 +23,7 @@
   "homepage": "https://github.com/Legal-Software/ts-proto-build#readme",
   "bin": "./index.js",
   "dependencies": {
+    "ts-proto": "^1.83.1",
+    "yargs": "^17.2.1"
   }
 }

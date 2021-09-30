@@ -1,6 +1,6 @@
 # Typescript Protobuf Build Tool
 
-This project implements an NPM CLI wrapper tool for [protoc](https://www.npmjs.com/package/protoc). It uses [ts-proto](https://www.npmjs.com/package/ts-proto) to recursively generate TypeScript code for Protobuf definitions using NPM run scripts.
+This project implements an NPM CLI wrapper tool for [ts-proto](https://www.npmjs.com/package/ts-proto) to recursively generate TypeScript code for Protobuf definitions using NPM run scripts.
 
 ## Usage
 
@@ -15,6 +15,12 @@ Options:
   -h, --help    Show help                                              [boolean]
 
 ```
+
+## Requirements
+
+Please make sure that the `protoc` binary is installed.
+
+- See [protoc installation](https://grpc.io/docs/protoc-installation/)
 
 ## Features
 

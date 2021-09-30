@@ -28,13 +28,6 @@ const options = yargs
         describe: 'Proto file extensions',
         type: 'array'
     })
-  .option('b', {
-        alias: 'binary',
-        demandOption: false,
-        default: false,
-        describe: 'Binary protocol ("grpcweb" instead of "grpcwebtext")',
-        type: 'boolean'
-    })
   .help('h')
   .alias('h', 'help')
   .argv
@@ -42,13 +35,14 @@ const options = yargs
 const fileFilter = (file) => options.e.includes(path.extname(file))
 
 const files = tools.traverse(options.d, fileFilter)
-
-const mode = options.b ? "grpcweb" : "grpcwebtext" 
+ 
 const protocArgs = [
-	'-I=' + options.d,
-	'--js_out=import_style=commonjs:' + options.o,
-	'--grpc-web_out=import_style=typescript,mode=' + mode + ':' + options.o
-].concat(files) 
+    '-I=' + options.d,
+	'--plugin=./node_modules/.bin/protoc-gen-ts_proto',
+    '--ts_proto_out=' + options.o
+].concat(files)
+
+fs.rmSync(options.o, { recursive: true, force: true })
 
 fs.mkdirSync(options.o, { recursive: true })
 
@@ -58,13 +52,6 @@ cp.execFile(protoc, protocArgs, null,
       console.log('Protoc error: ', err)
       process.exit(1)
     }
-     
-    const jsFilter = (file) => (path.extname(file) == ".js")      
-    let jsFiles = tools.traverse(options.o, jsFilter)
-    
-    jsFiles.forEach((file) => {
-      tools.prependToFile(file, "/* eslint-disable */\n")
-    })
   }
 )
 
