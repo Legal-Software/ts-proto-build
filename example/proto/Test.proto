@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package com.zv.example.proto;
+
+message Test {
+    int64 i = 1;
+    string str = 2;
+}
+
+message TestResp {
+    int64 i = 1;
+}
+
+service TestService {
+    rpc TestCall(Test) returns (TestResp);
+}

@@ -1,0 +1,27 @@
+{
+  "name": "ts-proto-build",
+  "version": "1.0.0",
+  "description": "CLI protoc wrapper for recursive Typescript code generation from Protobuf files",
+  "main": "index.js",
+  "scripts": {
+    "test": "./index.js -d example/proto -o example/out"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Legal-Software/ts-proto-build.git"
+  },
+  "keywords": [
+    "protoc",
+    "protobuf",
+    "TypeScript"
+  ],
+  "author": "Tom Schamberger",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Legal-Software/ts-proto-build/issues"
+  },
+  "homepage": "https://github.com/Legal-Software/ts-proto-build#readme",
+  "bin": "./index.js",
+  "dependencies": {
+  }
+}
