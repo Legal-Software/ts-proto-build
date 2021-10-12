@@ -8,12 +8,12 @@ This project implements an NPM CLI wrapper tool for [ts-proto](https://www.npmjs
 $ ts-proto-build
 
 Options:
-  --version     Show version number                                    [boolean]
-  -d, --dir     Source directory                             [string] [required]
-  -o, --out     Output directory                             [string] [required]
-  -e, --ext     Proto file extensions              [array] [default: [".proto"]]
-  -h, --help    Show help                                              [boolean]
-
+      --version  Show version number                                   [boolean]
+  -d, --dir      Source directory                            [string] [required]
+  -o, --out      Output directory                            [string] [required]
+  -e, --ext      Proto file extensions             [array] [default: [".proto"]]
+      --interop  Compile with 'esModuleInterop' flag  [boolean] [default: false]
+  -h, --help     Show help                                             [boolean]
 ```
 
 ## Requirements

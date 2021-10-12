@@ -28,6 +28,11 @@ const options = yargs
         describe: 'Proto file extensions',
         type: 'array'
     })
+  .option("interop", {
+    default: false,
+    describe: 'Compile with \'esModuleInterop\' flag',
+    type: 'boolean'
+  })
   .help('h')
   .alias('h', 'help')
   .argv
@@ -35,10 +40,17 @@ const options = yargs
 const fileFilter = (file) => options.e.includes(path.extname(file))
 
 const files = tools.traverse(options.d, fileFilter)
- 
+
+const additionalArgs = [] 
+
+if(options.interop){
+    additionalArgs.push("--ts_proto_opt=esModuleInterop=true")
+}
+
 const protocArgs = [
     '-I=' + options.d,
 	'--plugin=./node_modules/.bin/protoc-gen-ts_proto',
+    ...additionalArgs,
     '--ts_proto_out=' + options.o
 ].concat(files)
 
