@@ -28,6 +28,12 @@ const options = yargs
         describe: 'Proto file extensions',
         type: 'array'
     })
+   .option("ignore", {
+        demandOption: false,
+        default: [],
+        describe: 'Ignore files matching JS RegExp',
+        type: 'array'
+    })
   .option("interop", {
     default: false,
     describe: 'Compile with \'esModuleInterop\' flag',
@@ -37,7 +43,16 @@ const options = yargs
   .alias('h', 'help')
   .argv
 
-const fileFilter = (file) => options.e.includes(path.extname(file))
+const regexFilters = options.ignore.map(s => new RegExp(s))
+
+const fileFilter = (file) => {
+    const rightExt = options.e.includes(path.extname(file))
+    if(rightExt){
+        const filterRes = regexFilters.map(r => r.test(file))
+        return !filterRes.reduce((a, b) => a || b, false)
+    }
+    else return false
+}
 
 const files = tools.traverse(options.d, fileFilter)
 

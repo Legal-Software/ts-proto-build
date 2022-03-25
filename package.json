@@ -1,10 +1,11 @@
 {
   "name": "ts-proto-build",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "CLI protoc wrapper for recursive Typescript code generation from Protobuf files",
   "main": "index.js",
   "scripts": {
-    "test": "./index.js -d example/proto -o example/out"
+    "test": "./index.js -d example/proto -o example/out --ignore Other\\.proto",
+    "docs": "./index.js --help"
   },
   "repository": {
     "type": "git",

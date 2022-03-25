@@ -2,11 +2,11 @@ syntax = "proto3";
 
 package com.zv.example.proto;
 
-message Test {
+message Test2 {
     int64 i = 1;
     string str = 2;
 }
 
-message TestResp {
+message TestResp2 {
     int64 i = 1;
 }

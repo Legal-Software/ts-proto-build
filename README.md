@@ -12,6 +12,7 @@ Options:
   -d, --dir      Source directory                            [string] [required]
   -o, --out      Output directory                            [string] [required]
   -e, --ext      Proto file extensions             [array] [default: [".proto"]]
+      --ignore   Ignore files matching JS RegExp           [array] [default: []]
       --interop  Compile with 'esModuleInterop' flag  [boolean] [default: false]
   -h, --help     Show help                                             [boolean]
 ```
