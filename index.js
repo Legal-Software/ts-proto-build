@@ -4,9 +4,11 @@ const yargs = require('yargs')
 const path = require('path')
 const fs = require('fs')
 const tools = require('./tools')
-const cp = require("child_process");
+const cp = require('child_process')
 
 const protoc = "protoc"
+
+const pluginPathDefault = path.join("node_modules", ".bin", "protoc-gen-ts_proto")
 
 const options = yargs
   .option('d', {
@@ -39,6 +41,11 @@ const options = yargs
     describe: 'Compile with \'esModuleInterop\' flag',
     type: 'boolean'
   })
+  .option("plugin", {
+    default: pluginPathDefault,
+    describe: 'Path to the \'protoc-gen-ts_proto\' plugin executable',
+    type: 'string'
+  })
   .help('h')
   .alias('h', 'help')
   .argv
@@ -64,7 +71,7 @@ if(options.interop){
 
 const protocArgs = [
     '-I=' + options.d,
-	'--plugin=./node_modules/.bin/protoc-gen-ts_proto',
+	'--plugin=' + options.plugin,
     ...additionalArgs,
     '--ts_proto_out=' + options.o
 ].concat(files)
