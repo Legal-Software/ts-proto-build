@@ -14,6 +14,8 @@ Options:
   -e, --ext      Proto file extensions             [array] [default: [".proto"]]
       --ignore   Ignore files matching JS RegExp           [array] [default: []]
       --interop  Compile with 'esModuleInterop' flag  [boolean] [default: false]
+      --plugin   Path to the 'protoc-gen-ts_proto' plugin executable
+                     [string] [default: "node_modules/.bin/protoc-gen-ts_proto"]
   -h, --help     Show help                                             [boolean]
 ```
 
