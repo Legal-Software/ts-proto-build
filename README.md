@@ -5,7 +5,7 @@ This project implements an NPM CLI wrapper tool for [ts-proto](https://www.npmjs
 ## Usage
 
 ```
-$ ts-proto-build
+$ ts-protobuf-build
 
 Options:
       --version  Show version number                                   [boolean]

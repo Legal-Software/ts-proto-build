@@ -1,5 +1,5 @@
 {
-  "name": "ts-proto-build",
+  "name": "ts-protobuf-build",
   "version": "1.0.3",
   "description": "CLI protoc wrapper for recursive Typescript code generation from Protobuf files",
   "main": "index.js",
